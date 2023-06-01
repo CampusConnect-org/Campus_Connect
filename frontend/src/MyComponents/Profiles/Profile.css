@@ -1,13 +1,15 @@
 .title{
   color: purple;
   font-weight: 300;
-
+  top: 0;
 }
 
 .logo{
     height: 20px;
     width: 20px;
     padding: 3px;
+    margin: 0px 8px;
+    scale: 2;
 }
 .heading{
     font-size: x-large;
@@ -34,7 +36,7 @@
 }
 .profile_container{
   max-width: none;
-   margin-top: 8%;
+   margin-top: 62px;
    box-shadow: 
    inset 0px 20px 8px -10px rgb(221, 169, 221);
    /* inset 0px -11px 17px -10px plum; */
@@ -51,15 +53,17 @@
     margin: auto;
     margin-top: 20px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     padding-top: 17px;
     padding-bottom: 17px;
+    
 
 }
 
 .btn{
-    width: calc(33.33% - 10px);
-    margin: 5px;
+    width: calc(26.33% - 10px);
+    margin: 6px;
     height: 60px;
     background-color: white;
     border-radius: 20px 20px  20px 20px;
@@ -70,7 +74,7 @@
 }
 
 .selected_btn{
-  width: calc(33.33% - 10px);
+  width: calc(27.33% - 10px);
   margin: 5px;
   height: 60px;
  
@@ -103,12 +107,12 @@
     background-color: black;
     border: none;
     color: white;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    /* font-size: 16px; */
+    /* margin: 4px 2px; */
     cursor: pointer;
     position: relative;
   }
@@ -175,3 +179,15 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(2px);
   }
+
+
+@media screen and (max-width: 700px){
+
+  .btn{
+    width: 78%;
+  }
+
+  .selected_btn{
+    width: 80%;
+  }
+}

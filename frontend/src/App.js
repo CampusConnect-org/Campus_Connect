@@ -57,12 +57,9 @@ function App() {
   },[auth])
 
   return (
-    <>
-
-      <Router>
      
     <div>
- 
+  <Router>
       <Navbar/>
      
         <Routes>
@@ -76,12 +73,11 @@ function App() {
           <Route exact path='/listings' element={<Listings/>}/>
           <Route exact path='/chat/:username' element ={<Chat />}/>
         </Routes>
+     
         <Footer/>
+           </Router>
         </div>
 
-      </Router>
-   
-    </>
   );
 }
 

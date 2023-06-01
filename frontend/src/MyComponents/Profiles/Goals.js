@@ -1,16 +1,16 @@
 export const GOALS= [
     {
-       id:1,
+       id:'a',
         name:"Explore Career Options",
         img:""
     },
     {   
-        id:2,
+        id:'b',
         name:"Meet people like me",
         img:""
     },  
     {   
-        id:3,
+        id:'c',
         name:"Explore Career Options",
         img:""
     },

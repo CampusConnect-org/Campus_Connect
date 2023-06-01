@@ -21,8 +21,6 @@ const toggle=(x)=>{
 
 const addInterest=(interest, id)=>{
   
-  
-  
   const isFound = interests.some(element => {
     if (interest.id === element.id) {
       return true;
@@ -39,8 +37,6 @@ const addInterest=(interest, id)=>{
 
   setInterests(interests=> [...interests, interest]);
   console.log(interest);
-
- 
   
 }
 
@@ -62,7 +58,7 @@ const removeInterest=(id)=>{
   console.log(interests)
 }
 
-const addGoal=(goal)=>{
+const addGoal=(goal, id)=>{
   
   const isFound = goals.some(element => {
     if (goal.id === element.id) {
@@ -72,10 +68,36 @@ const addGoal=(goal)=>{
     return false;
   });
 
-  if(isFound) return;
+ 
+
+  if(isFound) removeGoal(id);
+
+  
+  var x=document.getElementById(`${id}`);
+  console.log(x);
+  toggle(x);
 
   setGoals(goals=> [...goals, goal]);
-  console.log(goals);
+  console.log(goal);
+}
+
+
+const removeGoal=(id)=>{
+  var x=document.getElementById(`${id}`);
+  console.log(x);
+ 
+
+  var index=goals.findIndex(object=>{
+    return object.id==id
+  })
+  x.classList.remove("selected_btn")
+  setGoals([
+    ...goals.slice(0, index),
+    ...goals.slice(index + 1, goals.length)
+  ]);
+   
+ 
+  console.log(goals)
 }
 
 const removeGoals=(index)=>{
@@ -111,6 +133,13 @@ const Goalanimation={
     duration:2
   }
 };
+
+const submitInfo=()=>{
+  console.log(goals);
+  console.log(interests);
+
+  //TODO -> send interests, and goals to backend
+}
 
 
 
@@ -177,13 +206,13 @@ return(
      <div className="main">{
    GOALS.map((goal)=>{
     
-    return(<button className="btn" data={goal.id}onClick={()=>addGoal(goal)}>
+    return(<button className="btn" id={goal.id}onClick={()=>addGoal(goal, goal.id)}>
       {goal.name}
     </button>)
    })
      }</div>
    
-   
+{/*    
    <div className="selected">
   {
     goals.map((goal, index)=>
@@ -193,11 +222,11 @@ return(
   <span className="remove_goal_icon"onClick={()=>removeGoals(index)}>&times;</span>{goal.name}</button>
      ) }  
     )}
- </div>
+ </div> */}
 
   
    <center>
-<button id="submitInfo">
+<button id="submitInfo" onClick={submitInfo}>
   SUBMIT
 </button>
 </center>

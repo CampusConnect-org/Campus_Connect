@@ -20,6 +20,11 @@
   box-shadow: 6px;
   border-radius: 0px 20px 0px 20px;
 }
+
+.inner_option:hover{
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5), 2px 2px 5px rgba(0,0,0,.1);
+}
 .option_img{
    width: 97%;
     margin: 5px 10px 10px 5px;
@@ -32,7 +37,8 @@
 .option_heading{
     font-size: large;
     font-weight: 600;
-
+    text-align: center;
+   
 }
 
 .option_description{
@@ -42,6 +48,8 @@
     width: 80%;
     margin: auto;
     text-align: center;
+
+  
 }
 
 .image_body{
@@ -69,4 +77,24 @@
     }
 
   }
+
+  @media  screen and (max-width: 600px) {
+    /* .option_description{
+      overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: horizontal;
+   
+    } */
+    
+    .inner_option{
+      width: 30%;
+      margin: 4px;
+      height: 67%;
+    }
+   
+
+  }
   
+  @media screen and (max-width: 480px) {
+     .inner_option{
+      height: 72%;
+     }
+  }

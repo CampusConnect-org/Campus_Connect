@@ -13,10 +13,10 @@ import { auth, db } from './firebase';
 import { useStateValue } from './MyContexts/StateProvider';
 import { Profile } from './MyComponents/Profiles/Profile.js';
 import { Option} from './MyComponents/Options/Option.jsx';
-import { Offer } from './MyComponents/Offer/Offer';
-import { Navbar } from './MyComponents/Navbar/Navbar';
-import Footer from './MyComponents/Footer/Footer';
-import Listings from './MyComponents/Listings/Listings';
+import { Offer } from './MyComponents/Offer/Offer.js';
+import { Navbar } from './MyComponents/Navbar/Navbar.jsx';
+import Footer from './MyComponents/Footer/Footer.jsx';
+import Listings from './MyComponents/Listings/Listings.jsx';
 
 function App() {
 

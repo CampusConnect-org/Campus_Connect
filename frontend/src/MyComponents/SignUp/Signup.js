@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Signup.css'
 import { Link, useNavigate } from 'react-router-dom';
-import 'https://kit.fontawesome.com/a076d05399.js';
+// import 'https://kit.fontawesome.com/a076d05399.js';
 import { auth, db } from '../../firebase';
 
 export const Signup = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer style={{ backgroundColor: 'black', color: 'white', padding: '8px', textAlign:"center", position:"fixed", bottom:"0", width:"100vw"}}>
+    <footer style={{ backgroundColor: 'black', color: 'white', padding: '8px', textAlign:"center", position:"relative", bottom:"0", width:"100vw", marginTop:"20px"}}>
       <div style={{padding: "10px"}}>
         {/* Social media icons */}
         <a href="https://example.com/facebook" style={{margin:"10px"}}><i style={{fontSize:"20px", color:"#1095F4"}} className="fab fa-facebook"></i></a>

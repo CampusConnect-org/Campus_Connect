@@ -14,7 +14,7 @@ li {
   /* height: 60vh; */
   height: 80vh;
   overflow: hidden;
-  margin-top: 10%;
+  margin-top: 60px;
   /* padding-top:10vh; */
   /* padding-bottom:5vh; */
 
@@ -33,6 +33,11 @@ li {
   flex-direction: column;
   justify-content: center;
 }
+
+.toggle-btn{
+  cursor: pointer;
+}
+
 
 .left-menu {
   position: absolute;
@@ -192,17 +197,67 @@ li {
 }
 
 #next-listing-button {
-  color: red;
   height: 20px;
-  position: absolute;
+  position: relative;
   top: 0;
+  
 }
 #prev-listing-button {
-  position: absolute;
-  top: 30px;
+  position: relative;
+
+}
+.nav_btn_arrow{
+ font-size: 25px;
+}
+.nav_btn_arrow:hover{
+ scale: 1.1;
+ font-weight: 600;
+}
+
+.middle-user-input{
+  display: flex;
+  transform: translateX(-3%);
+}
+
+.navigation_btns{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 #next-listing-button:hover {
   cursor: pointer;
-  background-color: red;
+}
+#prev-listing-button:hover{
+  cursor: pointer;
+}
+
+.left_menu_mobile{
+  display: none;
+}
+@media screen and (max-width:600px){
+ .right-list{
+  display: none;
+ }
+
+ .left_menu_mobile{
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  background-color: rgb(255, 255, 255);
+  color: black;
+
+  box-shadow: 0px 0px 10px black;
+
+  z-index: 1;
+ }
+
+ .left-menu{
+  display: none;
+ }
+
+ .middle-content{
+  width: 80%;
+ }
 }

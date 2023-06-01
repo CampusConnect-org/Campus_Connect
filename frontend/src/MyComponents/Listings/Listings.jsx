@@ -2,8 +2,56 @@ import React, {useState} from 'react';
 import "./Listings.css"
 import { useEffect } from 'react';
 
-const LeftMenu = () => {
+
+
+const LeftMenu = ({type, setType}) => {
+  console.log(type)
+  //menu for mobile devices
+  
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleMenu = () => {
+      setIsOpen(!isOpen);
+    };
+  
+    const handleItemClick = (n) => {
+      console.log(n);
+      setType(n);
+      setIsOpen(false);
+      // Add your custom logic for handling item click here
+    };
+
+    //menu for mobile devices
+
+
+
   return (
+
+    <>
+    <div className="left_menu_mobile">
+
+    <div className="menu">
+      <button className="toggle-btn" onClick={toggleMenu}>
+        {isOpen ? <i class="fa-sharp fa-solid fa-xmark"  style={{fontSize:"32px"}}></i> : <i className="fa-solid fa-bars" style={{fontSize:"32px"}}></i>}
+      </button>
+      {isOpen && (
+        <ul className="menu-list">
+            
+          <li className="menu-item" onClick={handleItemClick} >Home</li>
+        <li className="menu-item" onClick={()=>handleItemClick(0)} >Competitions</li>
+        <li className="menu-item" onClick={()=>handleItemClick(1)} >Startups</li>
+        <li className="menu-item" onClick={()=>handleItemClick(2)} >Explore</li>
+        <li className="menu-item" onClick={handleItemClick} >Hackathons</li>
+        <li className="menu-item" onClick={handleItemClick} >Case Study</li>
+
+        </ul>
+      )}
+    </div>
+
+    </div>
+
+
+{/* menu for mobile devices ends here */}
     <div className="left-menu" >
 
       <ul className='left-menu-list'>
@@ -21,12 +69,15 @@ const LeftMenu = () => {
 <li>Privacy Policy</li>
       </ul>
     </div>
+    </>
   );
 };
 
-const MiddleContent = () => {
-  let arr=[1,2,3,4,5,6,7,8,9,10];
-
+const MiddleContent = ({type, setType}) => {
+  console.log(type)
+  let arr=[ ["comp1", "comp2", "comp3"], ["startup1" ,"startup2", "startup3"], ["explore1","explore2", "explore3"]];
+  
+  
   const [curr, setCurr]=useState(0);
 
     const [expanded, setExpanded] = useState(false);
@@ -35,7 +86,7 @@ const MiddleContent = () => {
       setExpanded(!expanded);
     };
 
-    let newArr=arr.slice(curr,curr+3);
+    let newArr=arr[type].slice(curr,curr+3);
 
 
 
@@ -62,8 +113,15 @@ const prevCurr=()=>{
       </div>
       <div className="middle-user-input">
         <input id="add-listing-btn" type="text" placeholder="Create your Listing..." />
-        {/* Add any additional elements or functionality for user input */}<button id="next-listing-button" onClick={changeCurr}>Next</button>
-        <button id="prev-listing-button" onClick={prevCurr}>Prev</button>
+        {/* Add any additional elements or functionality for user input */}
+
+        <div className="navigation_btns">
+        <i id="prev-listing-button" onClick={prevCurr} className="fa-solid fa-arrow-left nav_btn_arrow"></i>
+        <i id="next-listing-button" onClick={changeCurr} className="fa-solid fa-arrow-right nav_btn_arrow"></i>
+        </div>
+      
+        
+  
       </div>
 
 
@@ -163,11 +221,15 @@ const RightList = () => {
 };
 
 const ComplexComponent = () => {
+  const [type, setType]=useState(0);
   return (
     <div className="complex-component">
       <div className="triple">
-        <LeftMenu />
-        <MiddleContent />
+        <LeftMenu  type={type}
+        setType={setType}/>
+        <MiddleContent type={type}
+        setType={setType}
+        />
         <RightList />
       </div>
     </div>

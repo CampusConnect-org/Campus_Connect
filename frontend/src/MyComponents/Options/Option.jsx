@@ -21,7 +21,7 @@ export const Option = () => {
            <div className="image_body">
          {option.commingSoon && <marquee className="text"> COMING SOON</marquee>
          }
-            <img src={require("./"+option.img)} className="option_img"/>
+            <img  src={require("./"+option.img)} className="option_img"/>
             
             </div>
            

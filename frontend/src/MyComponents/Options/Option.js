@@ -10,7 +10,7 @@ export const OPTIONS= [
     {
         heading:"COMMUNITY",
         desc:"Join like minded peers and explore your passions",
-        commingSoon:false,
+        commingSoon:true,
         img:"community.jpeg"
     },
     {

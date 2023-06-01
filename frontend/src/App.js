@@ -15,6 +15,8 @@ import { Profile } from './MyComponents/Profiles/Profile.js';
 import { Option} from './MyComponents/Options/Option.jsx';
 import { Offer } from './MyComponents/Offer/Offer';
 import { Navbar } from './MyComponents/Navbar/Navbar';
+import Footer from './MyComponents/Footer/Footer';
+import Listings from './MyComponents/Listings/Listings';
 
 function App() {
 
@@ -58,8 +60,11 @@ function App() {
     <>
 
       <Router>
-        <div>
-        <Navbar/>
+     
+    <div>
+ 
+      <Navbar/>
+     
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/chat/' element ={<Chat />}/>
@@ -68,11 +73,14 @@ function App() {
           <Route exact path='/offer' element={<Offer/>}/>
           <Route exact path='/profile' element={<Profile/>}/>
           <Route exact path='/options' element={<Option/>}/>
+          <Route exact path='/listings' element={<Listings/>}/>
           <Route exact path='/chat/:username' element ={<Chat />}/>
         </Routes>
-   
+        <Footer/>
         </div>
+
       </Router>
+   
     </>
   );
 }

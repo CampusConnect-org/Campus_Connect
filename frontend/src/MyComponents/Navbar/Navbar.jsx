@@ -11,7 +11,7 @@ export const Navbar=()=> {
       <div className="nav-right">
         <ul>
           <li>
-            <Link to="/" >Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/chat"><img src={require("./chat.png")} alt="" /></Link>
@@ -20,7 +20,7 @@ export const Navbar=()=> {
             <Link to="/settings"><img src={require("./settings.png")} alt="" /></Link>
           </li>
           <li>
-            <Link to="/profiles"><img src={require("./profile.webp")} alt="" /></Link>
+            <Link to="/profiles"><img src={require("./profile.png")} alt="" /></Link>
           </li>
         </ul>
       </div>

@@ -41,6 +41,7 @@
    inset 0px 20px 8px -10px rgb(221, 169, 221);
    /* inset 0px -11px 17px -10px plum; */
    background: linear-gradient(plum, #fff);
+   margin-bottom: 120px;
 }
 
 .main{

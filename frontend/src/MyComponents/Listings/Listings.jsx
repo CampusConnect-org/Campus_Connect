@@ -1,6 +1,7 @@
 import React, {useState} from 'react'; 
 import "./Listings.css"
 import { useEffect } from 'react';
+import Listing from './Listing';
 
 
 
@@ -82,10 +83,15 @@ const MiddleContent = ({type, setType}) => {
 
     const [expanded, setExpanded] = useState(false);
 
+    const[open, setOpen]=useState(-1);
+
+
     const handleExpand = () => {
       setExpanded(!expanded);
     };
-
+   const handleInquire=(e)=>{
+    setOpen(e);
+   }
     let newArr=arr[type].slice(curr,curr+3);
 
 
@@ -94,10 +100,12 @@ const MiddleContent = ({type, setType}) => {
 
 
 const changeCurr=()=>{
+  setOpen(-1);
   setCurr(Math.min(curr+3, arr.length-2));
 }
 
 const prevCurr=()=>{
+  setOpen(-1);
   setCurr(Math.max(0,curr-4));
 }
     //swiper code
@@ -135,6 +143,11 @@ const prevCurr=()=>{
      
        return( 
        
+<>
+
+
+
+
        <div className="your-component">
 {e}
         <div className="list-image-container">
@@ -152,9 +165,12 @@ const prevCurr=()=>{
               {expanded ? 'See less' : 'See more'}
             </span>
           </p>
-          <button className="inquire-button">Inquire</button>
+          <button className="inquire-button" onClick={()=>handleInquire(e)}>Inquire</button>
+          
+{e==open &&  <Listing elem = {e}/>}
       </div>
-      </div>)
+      </div>
+      </>)
       
       })
 

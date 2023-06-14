@@ -20,7 +20,7 @@ export const Navbar=()=> {
             <Link to="/settings"><img src={require("./settings.png")} alt="" /></Link>
           </li>
           <li>
-            <Link to="/profiles"><img src={require("./profile.png")} alt="" /></Link>
+            <Link to="/profile"><img src={require("./profile.png")} alt="" /></Link>
           </li>
         </ul>
       </div>

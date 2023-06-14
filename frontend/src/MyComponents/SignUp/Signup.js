@@ -120,7 +120,7 @@ export const Signup = () => {
                 </p>
                 <button type="submit" onClick={signUp} className="continue-btn">Continue to Campus Connect</button>
             </form>
-            <p>Already have an account? <Link to="#">Sign In</Link></p>
+            <p>Already have an account? <Link to="/login" className='sign_in_direct'>Sign In</Link></p>
         </div>
     )
 }

@@ -6,10 +6,21 @@ import LocalLibraryOutlinedIcon from '@mui/icons-material/LocalLibraryOutlined';
 import SecurityIcon from '@mui/icons-material/Security';
 import pic from "./0-removebg-preview.png";
 import "./Landing.css"
+import { useNavigate } from 'react-router-dom';
+import { Signup } from '../SignUp/Signup';
 
 let theme = createTheme();
+
 theme = responsiveFontSizes(theme);
 export const Landing = () => {
+  const navigate= useNavigate(); 
+
+ const goToSignup = ()=>{
+  navigate('./signup');
+ } 
+ const goToLogin = ()=>{
+    navigate('./login');
+}   
   return (
     <ThemeProvider theme={theme}>
 
@@ -53,8 +64,10 @@ export const Landing = () => {
                     }} >
 
                     <Box display="flex" justifyContent="flex-start" alignItems="center">
-                        <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" >Login</Button>
-                        <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" >Sign Up</Button>
+                        <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
+                        onClick={()=> goToLogin()}
+                        >Login</Button>
+                        <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" onClick={()=> goToSignup()}>Sign Up</Button>
                     </Box>
                 </Grid>
                 {/* <Grid item mx={5} container xs={12} spacing={1}>

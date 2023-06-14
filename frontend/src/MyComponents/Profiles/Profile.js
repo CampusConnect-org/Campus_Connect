@@ -6,10 +6,13 @@ import "./main_logo.jpg";
 import "./Profile.css";
 import { useState } from "react";
 import {motion, spring} from "framer-motion"
+import { useNavigate } from "react-router-dom";
 
 
 
 export const Profile=()=>{
+
+  const navigate= useNavigate();
 
 const [interests,setInterests]= useState([]);
 const [goals,setGoals]= useState([]);
@@ -139,6 +142,8 @@ const submitInfo=()=>{
   console.log(interests);
 
   //TODO -> send interests, and goals to backend
+  navigate('../options')
+  
 }
 
 

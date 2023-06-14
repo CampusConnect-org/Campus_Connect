@@ -18,6 +18,7 @@ import { Navbar } from './MyComponents/Navbar/Navbar.jsx';
 import Footer from './MyComponents/Footer/Footer.jsx';
 import Listings from './MyComponents/Listings/Listings.jsx';
 import { Landing } from './MyComponents/Landing Page/Landing';
+import Login from './MyComponents/Login/Login';
 
 function App() {
 
@@ -58,7 +59,7 @@ function App() {
   },[auth])
 
   return (
-     
+   
     <div>
   <Router>
       <Navbar/>
@@ -67,6 +68,7 @@ function App() {
           <Route exact path='/' element={<Landing />} />
           <Route exact path='/chat/' element ={<Chat />}/>
           <Route exact path='/signup' element={<Signup />} />
+          <Route exact path='/login' element={<Login/>} />
           <Route exact path='/users' element={<Users />} />
          
           <Route exact path='/offer' element={<Offer/>}/>
@@ -75,11 +77,10 @@ function App() {
           <Route exact path='/listings' element={<Listings/>}/>
           <Route exact path='/chat/:username' element ={<Chat />}/>
         </Routes>
-     
-        <Footer/>
+           <Footer/>       
            </Router>
+         
         </div>
-
   );
 }
 

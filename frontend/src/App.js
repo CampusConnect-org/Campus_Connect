@@ -6,14 +6,14 @@ import {
   Route,
 }from 'react-router-dom';
 import { Chat } from './MyComponents/Chat/Chat.js'
-import { Signup } from './MyComponents/SignUp/Signup.js';
-import { Home } from './MyComponents/Home.js';
+import { Signup } from './MyComponents/Authentication/Signup.js';
 import { Users } from './MyComponents/Chat/Users/Users.js';
 import { auth, db } from './firebase';
 import { useStateValue } from './MyContexts/StateProvider';
 import { Profile } from './MyComponents/Profiles/Profile.js';
 import { Option} from './MyComponents/Options/Option.jsx';
 import { Offer } from './MyComponents/Offer/Offer';
+import { Login } from './MyComponents/Authentication/Login.js';
 
 function App() {
 
@@ -57,14 +57,13 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={<Home />} />
           <Route exact path='/chat/' element ={<Chat />}/>
           <Route exact path='/signup' element={<Signup />} />
           <Route exact path='/users' element={<Users />} />
           <Route exact path='/' element={<Offer/>}/>
           <Route exact path='/profile' element={<Profile/>}/>
           <Route exact path='/options' element={<Option/>}/>
-          <Route exact path='/chat/:username' element ={<Chat />}/>
+          <Route exact path='/signin' element={<Login />} />
         </Routes>
       </Router>
     </>

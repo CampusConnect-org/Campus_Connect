@@ -7,11 +7,14 @@ import "./Profile.css";
 import { useState } from "react";
 import {motion, spring} from "framer-motion"
 import { useNavigate } from "react-router-dom";
+import { db } from '../../firebase.js'
+import { useStateValue } from "../../MyContexts/StateProvider";
 
 
 
 export const Profile=()=>{
 
+  const [{user},dispatch]=useStateValue();
   const navigate= useNavigate();
 
 const [interests,setInterests]= useState([]);
@@ -49,7 +52,7 @@ const removeInterest=(id)=>{
  
 
   var index=interests.findIndex(object=>{
-    return object.id==id
+    return object.id===id
   })
   x.classList.remove("selected_btn")
   setInterests([
@@ -91,7 +94,7 @@ const removeGoal=(id)=>{
  
 
   var index=goals.findIndex(object=>{
-    return object.id==id
+    return object.id===id
   })
   x.classList.remove("selected_btn")
   setGoals([
@@ -141,6 +144,20 @@ const submitInfo=()=>{
   console.log(goals);
   console.log(interests);
 
+  const profileRef=db.collection('users').doc(user?.uid).collection('profile');
+
+  profileRef.doc('interests').set({
+    interests
+  });
+
+  profileRef.doc('goals').set({
+    goals
+  })
+  dispatch({
+    type:'SET_PROFILE',
+    interests,
+    goals
+  })
   //TODO -> send interests, and goals to backend
   navigate('../options')
   

@@ -17,7 +17,7 @@ import { Navbar } from './MyComponents/Navbar/Navbar.jsx';
 import Footer from './MyComponents/Footer/Footer.jsx';
 import Listings from './MyComponents/Listings/Listings.jsx';
 import { Landing } from './MyComponents/Landing Page/Landing';
-import Login from './MyComponents/Login/Login';
+import Login from './MyComponents/Authentication/Login';
 
 function App() {
 
@@ -43,6 +43,16 @@ function App() {
             yearOfStudy
           })
         })
+        db.collection('users').doc(authUser.uid).collection('profile').doc('interests').get()
+        .then(doc=>{
+          let interests=doc.data().interests;
+          let goals=doc.data().goals;
+          dispatch({
+            type:'SET_PROFILE',
+            interests,
+            goals
+          })
+        })
       }
       else{
         dispatch({
@@ -52,6 +62,11 @@ function App() {
           college:'',
           email:'',
           yearOfStudy:''
+        })
+        dispatch({
+          type:'SET_PROFILE',
+          interests:[],
+          goals:[]
         })
       }
     })

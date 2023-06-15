@@ -15,7 +15,7 @@ export const Navbar=()=> {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/chat"><img src={require("./chat.png")} alt="" /></Link>
+            <Link to="/users"><img src={require("./chat.png")} alt="" /></Link>
           </li>
           <li>
             <Link to="/settings"><img src={require("./settings.png")} alt="" /></Link>

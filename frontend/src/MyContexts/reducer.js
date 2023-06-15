@@ -3,7 +3,9 @@ export const initialState={
     name:'',
     college:'',
     yearOfStudy:'',
-    email:''
+    email:'',
+    interests:[],
+    goals:[]
 };
 
 const reducer=(state,action)=>{
@@ -15,6 +17,11 @@ const reducer=(state,action)=>{
                 college:action.college,
                 yearOfStudy:action.yearOfStudy,
                 email:action.email
+            }
+        case 'SET_PROFILE':
+            return{
+                interests:action.interests,
+                goals:action.goals
             }
         default:
             return state

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Link,  useNavigate } from 'react-router-dom';
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
 import firebase from 'firebase/compat/app';
-import { auth, db } from '../../firebase';
+import { auth, db , provider} from '../../firebase';
 import "./Login.css"
+import { signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,34 +19,34 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
-    alert("logging in");
     e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        // Redirect to the home page after successful login
-        navigate('./')
-      })
-      .catch((error) => {
-        // Handle login errors here
-        console.error(error);
-      });
+    alert("Logging in");
+    auth.signInWithEmailAndPassword(email,password)
+    .then((auth)=>{
+      if(auth){
+        navigate('/')
+      }
+    }).catch(error=>{
+      alert(error.message);
+    })
   };
 
   const handleGoogleLogin = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
-      .auth()
-      .signInWithPopup(provider)
-      .then(() => {
-        // Redirect to the home page after successful login
-        navigate('/dashboard')
-      })
-      .catch((error) => {
-        // Handle login errors here
-        console.error(error);
-      });
+    signInWithPopup(auth,provider)
+    .then(authUser=>{
+      db.collection('users').doc(authUser.user.uid).set({
+        userid:authUser.user.uid
+      }).then(()=>{
+          db.collection('users').doc(authUser.user.uid).collection('profile').doc('userInfo').set({
+              name:authUser.user.displayName,
+              email:authUser.user.email
+          }).then(()=>{
+              if(authUser)navigate('/');
+          }).catch(error=>alert(error.message))
+      }).catch(error=>alert(error.message))
+    }).catch(error=>{
+      alert(error.message);
+    })
   };
 
   const redirect = ()=>{

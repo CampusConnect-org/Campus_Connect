@@ -7,12 +7,15 @@ import SecurityIcon from '@mui/icons-material/Security';
 import pic from "./0-removebg-preview.png";
 import "./Landing.css"
 import { useNavigate } from 'react-router-dom';
-import { Signup } from '../SignUp/Signup';
+import { Signup } from '../Authentication/Signup';
+import { useStateValue } from '../../MyContexts/StateProvider';
 
 let theme = createTheme();
 
+
 theme = responsiveFontSizes(theme);
 export const Landing = () => {
+    const {user,name}=useStateValue();
   const navigate= useNavigate(); 
 
  const goToSignup = ()=>{

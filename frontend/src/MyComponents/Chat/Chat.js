@@ -33,13 +33,14 @@ export const Chat = () => {
             })
         }
         setLoading(false);
+        console.log(messageList);
         //eslint-disable-next-line
     },[messagesRef])
 
     const [newMessage,setNewMessage]=useState('')
 
     const sendMessage= async(event)=>{
-        setSending(true);
+        if(newMessage.length) setSending(true);
         const message={
             text:newMessage,
             createdAt:Timestamp.now(),
@@ -48,8 +49,8 @@ export const Chat = () => {
         };
         event.preventDefault();
         if(newMessage.length===0) return;
-        await messagesRef.add(message)
         if(user?.uid!==receiverUserId) messagesRef2.add(message);
+        await messagesRef.add(message)
         setNewMessage('');
         setSending(false);
     }

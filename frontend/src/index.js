@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import reducer,{ initialState } from './MyContexts/reducer.js';
 import { StateProvider } from './MyContexts/StateProvider.js';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

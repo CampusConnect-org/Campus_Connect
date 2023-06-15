@@ -61,7 +61,7 @@
   
   /* Style button */
   .continue-btn {
-    background-color: #4A4AFF;
+    background-color: rgb(120, 50, 120);
     color: #FFFFFF;
     border: none;
     border-radius: 5px;
@@ -74,12 +74,12 @@
   }
   
   .continue-btn:hover {
-    background-color: #3030FF;
+    background-color: rgb(225, 101, 225);
   }
   
   /* Style link */
   a {
-    color: #4A4AFF;
+    color: rgb(176, 59, 176);
     text-decoration: none;
   }
   
@@ -118,4 +118,8 @@
     margin-top:-15px;
     margin-bottom:15px;
     margin-left:50px;
+  }
+
+  .sign_in_direct{
+    color: purple;
   }

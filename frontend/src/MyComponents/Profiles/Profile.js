@@ -5,13 +5,25 @@ import {GOALS} from "./Goals"
 import "./main_logo.jpg";
 import "./Profile.css";
 import { useState } from "react";
+import {motion, spring} from "framer-motion"
+import { useNavigate } from "react-router-dom";
+
+
+
 export const Profile=()=>{
+
+  const navigate= useNavigate();
 
 const [interests,setInterests]= useState([]);
 const [goals,setGoals]= useState([]);
 
-const addInterest=(interest)=>{
+const toggle=(x)=>{
+  if(x.className==="btn") x.className="selected_btn";
+  else x.className="btn";
+}
 
+const addInterest=(interest, id)=>{
+  
   const isFound = interests.some(element => {
     if (interest.id === element.id) {
       return true;
@@ -20,23 +32,36 @@ const addInterest=(interest)=>{
     return false;
   });
 
-  if(isFound) return;
+  if(isFound) removeInterest(id);
+
+  var x=document.getElementById(`${id}`);
+  console.log(x);
+  toggle(x);
 
   setInterests(interests=> [...interests, interest]);
   console.log(interest);
+  
 }
 
-const removeInterest=(index)=>{
+const removeInterest=(id)=>{
+  var x=document.getElementById(`${id}`);
+  console.log(x);
+ 
+
+  var index=interests.findIndex(object=>{
+    return object.id==id
+  })
+  x.classList.remove("selected_btn")
   setInterests([
     ...interests.slice(0, index),
     ...interests.slice(index + 1, interests.length)
   ]);
    
  
-
+  console.log(interests)
 }
 
-const addGoal=(goal)=>{
+const addGoal=(goal, id)=>{
   
   const isFound = goals.some(element => {
     if (goal.id === element.id) {
@@ -46,10 +71,36 @@ const addGoal=(goal)=>{
     return false;
   });
 
-  if(isFound) return;
+ 
+
+  if(isFound) removeGoal(id);
+
+  
+  var x=document.getElementById(`${id}`);
+  console.log(x);
+  toggle(x);
 
   setGoals(goals=> [...goals, goal]);
-  console.log(goals);
+  console.log(goal);
+}
+
+
+const removeGoal=(id)=>{
+  var x=document.getElementById(`${id}`);
+  console.log(x);
+ 
+
+  var index=goals.findIndex(object=>{
+    return object.id==id
+  })
+  x.classList.remove("selected_btn")
+  setGoals([
+    ...goals.slice(0, index),
+    ...goals.slice(index + 1, goals.length)
+  ]);
+   
+ 
+  console.log(goals)
 }
 
 const removeGoals=(index)=>{
@@ -60,56 +111,113 @@ const removeGoals=(index)=>{
 
 }
 
+const [move,setMove]= useState(false);
+
+const handleNextClick = ()=>{
+
+ setMove(true);
+  
+}
+
+const animation={
+  display:"none",
+  opacity: "0",
+  transition: {
+    duration:2,
+    type:spring
+  }
+};
+
+const Goalanimation={
+  x: "0",
+  opacity: "1",
+  transition: {
+    type:spring,
+    duration:2
+  }
+};
+
+const submitInfo=()=>{
+  console.log(goals);
+  console.log(interests);
+
+  //TODO -> send interests, and goals to backend
+  navigate('../options')
+  
+}
+
+
 
 
 return(
  
  <>
 
-   <div className="container">
-
+   <div className="profile_container">
      <center className="title">
      <img src={require("./main_logo.jpg")} alt="" className="logo"/>
       CAMPUS-CONNECT
      </center>
+     <div className="overall_container">
+
+     <motion.div animate={move && animation}>
      <center className="heading">
    WHAT ARE YOU INTERESTED IN?
-     </center>
-     <div className="main">
+   
+     </center> 
+     
+     <div className="main"
+    >
      {
    INTERESTS.map((interest)=>{
 // console.log(interest.name);
-   return ( <button className="btn" data={interest.id} onClick={()=>addInterest(interest)}>
+   return ( <motion.button className="btn" id={interest.id} onClick={()=>addInterest(interest, interest.id)} 
+   initial={{opacity:0}}
+   animate={{ opacity: 1}}
+   transition={{duration:2}}
+   >
       {interest.name}
   {interest.img}
-    </button>
+    </motion.button>
     
     )
    })
      } </div>
+     <button id="next" onClick={handleNextClick}>NEXT <span>&rarr;</span></button>
      <div className="selected">
   {
     interests.map((interest, index)=>
     {
       return(
 <button className="selected_interest" >
-  <span className="remove_interest_icon"onClick={()=>removeInterest(index)}>&times;</span>{interest.name}</button>
+  <span className="remove_interest_icon"onClick={()=>removeInterest(index, interest.id)}>&times;</span>{interest.name}</button>
      ) }  
     )}
  </div>
+ </motion.div>
+ <motion.div 
+ initial={
+  {x:"100vw",
+  display:"none"
+}
+ } 
+ animate={move && Goalanimation}
+
+ >
          <center className="heading">
    CHOOSE YOUR GOALS
      </center>
+  
      <div className="main">{
    GOALS.map((goal)=>{
     
-    return(<button className="btn" data={goal.id}onClick={()=>addGoal(goal)}>
+    return(<button className="btn" id={goal.id}onClick={()=>addGoal(goal, goal.id)}>
       {goal.name}
     </button>)
    })
      }</div>
    
-   
+{/*    
    <div className="selected">
   {
     goals.map((goal, index)=>
@@ -119,14 +227,17 @@ return(
   <span className="remove_goal_icon"onClick={()=>removeGoals(index)}>&times;</span>{goal.name}</button>
      ) }  
     )}
- </div>
+ </div> */}
 
-   </div>
+  
    <center>
-<button id="submitInfo">
+<button id="submitInfo" onClick={submitInfo}>
   SUBMIT
 </button>
 </center>
+</motion.div>
+</div>
+</div>
    </>  
 );
 

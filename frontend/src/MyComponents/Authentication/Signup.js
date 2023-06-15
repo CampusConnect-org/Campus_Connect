@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Signup.css'
 import { Link, useNavigate } from 'react-router-dom';
-import 'https://kit.fontawesome.com/a076d05399.js';
+// import 'https://kit.fontawesome.com/a076d05399.js';
 import { auth, db } from '../../firebase';
 
 export const Signup = () => {
@@ -120,7 +120,7 @@ export const Signup = () => {
                 </p>
                 <button type="submit" onClick={signUp} className="continue-btn">Continue to Campus Connect</button>
             </form>
-            <p>Already have an account? <Link to="#">Sign In</Link></p>
+            <p>Already have an account? <Link to="/login" className='sign_in_direct'>Sign In</Link></p>
         </div>
     )
 }

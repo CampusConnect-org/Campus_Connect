@@ -9,12 +9,16 @@ import "./Landing.css"
 import { useNavigate } from 'react-router-dom';
 import { Signup } from '../Authentication/Signup';
 import { useStateValue } from '../../MyContexts/StateProvider';
+import { Offer } from '../Offer/Offer';
+import Footer from '../Footer/Footer';
+import { auth, db } from '../../firebase';
 
 let theme = createTheme();
 
 
 theme = responsiveFontSizes(theme);
 export const Landing = () => {
+
     const {user,name}=useStateValue();
   const navigate= useNavigate(); 
 
@@ -25,6 +29,7 @@ export const Landing = () => {
     navigate('./login');
 }   
   return (
+    <>
     <ThemeProvider theme={theme}>
 
     <Grid container direction="column" spacing={2} my={9} sx={{ height:"100%"}}>
@@ -66,12 +71,19 @@ export const Landing = () => {
                         justifyItems:"flex-start"
                     }} >
 
-                    <Box display="flex" justifyContent="flex-start" alignItems="center">
+                   { user===null && <Box display="flex" justifyContent="flex-start" alignItems="center">
                         <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
                         onClick={()=> goToLogin()}
                         >Login</Button>
                         <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" onClick={()=> goToSignup()}>Sign Up</Button>
                     </Box>
+} 
+{
+    user!==null && <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
+   
+    >Welcome to Campus Connect 
+    </Button>
+}
                 </Grid>
                 {/* <Grid item mx={5} container xs={12} spacing={1}>
                     
@@ -137,5 +149,7 @@ export const Landing = () => {
         </Grid>
     </Grid>
     </ThemeProvider>
+    <Offer/>
+    </>
   )
 }

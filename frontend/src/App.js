@@ -93,7 +93,7 @@ function App() {
           <Route exact path='/listings' element={<Listings/>}/>
           <Route exact path='/chat/:username' element ={<Chat />}/>
         </Routes>
-           <Footer/>       
+      
            </Router>
          
         </div>

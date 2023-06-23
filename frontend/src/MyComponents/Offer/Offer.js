@@ -1,5 +1,6 @@
 import React from "react";
 import "./Offer.css";
+import Footer from "../Footer/Footer";
 export const Offer= ()=>{
 
     return(

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./Listings.css"
 import { useEffect } from 'react';
 import Listing from './Listing';
+import Footer from '../Footer/Footer';
 
 
 
@@ -238,7 +239,8 @@ const RightList = () => {
 
 const ComplexComponent = () => {
   const [type, setType]=useState(0);
-  return (
+  return ( 
+    <>
     <div className="complex-component">
       <div className="triple">
         <LeftMenu  type={type}
@@ -247,8 +249,12 @@ const ComplexComponent = () => {
         setType={setType}
         />
         <RightList />
+             
       </div>
     </div>
+<Footer/>
+    </>
+     
   );
 };
 

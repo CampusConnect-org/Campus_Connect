@@ -9,6 +9,7 @@ import {motion, spring} from "framer-motion"
 import { useNavigate } from "react-router-dom";
 import { db } from '../../firebase.js'
 import { useStateValue } from "../../MyContexts/StateProvider";
+import Footer from "../Footer/Footer";
 
 
 
@@ -255,6 +256,7 @@ return(
 </motion.div>
 </div>
 </div>
+<Footer/>
    </>  
 );
 

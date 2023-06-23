@@ -9,17 +9,14 @@ import "./Landing.css"
 import { useNavigate } from 'react-router-dom';
 import { Signup } from '../Authentication/Signup';
 import { useStateValue } from '../../MyContexts/StateProvider';
-import { Offer } from '../Offer/Offer';
-import Footer from '../Footer/Footer';
-import { auth, db } from '../../firebase';
+import { auth } from '../../firebase';
 
 let theme = createTheme();
 
 
 theme = responsiveFontSizes(theme);
 export const Landing = () => {
-
-    const {user,name}=useStateValue();
+    const [{user,name},dispatch]=useStateValue();
   const navigate= useNavigate(); 
 
  const goToSignup = ()=>{
@@ -27,7 +24,10 @@ export const Landing = () => {
  } 
  const goToLogin = ()=>{
     navigate('./login');
-}   
+ }
+    const Logout = () =>{
+        auth.signOut();
+    }   
   return (
     <>
     <ThemeProvider theme={theme}>
@@ -71,11 +71,15 @@ export const Landing = () => {
                         justifyItems:"flex-start"
                     }} >
 
-                   { user===null && <Box display="flex" justifyContent="flex-start" alignItems="center">
-                        <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
+                    <Box display="flex" justifyContent="flex-start" alignItems="center">
+                        {!user?<Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
                         onClick={()=> goToLogin()}
-                        >Login</Button>
-                        <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" onClick={()=> goToSignup()}>Sign Up</Button>
+                        >Login</Button>:
+                        <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
+                        onClick={()=> Logout()}
+                        >Logout</Button>
+                        }
+                        {!user && <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" onClick={()=> goToSignup()}>Sign Up</Button>}
                     </Box>
 } 
 {

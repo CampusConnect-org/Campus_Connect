@@ -6,7 +6,7 @@ export const Offer= ()=>{
     return(
     <>
        <div className="offer_heading"> <h1>What We Offer</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum doloribus sapiente perferendis ab sit necessitatibus laboriosam ut officia ad totam!</p></div>
+      </div>
        <div className="offer_container">
     
       <div className="sub-div">
@@ -29,7 +29,9 @@ export const Offer= ()=>{
         <b>Opportunities</b><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus debitis molestias possimus hic eveniet ad!</p>
       </div>
       </div>
-  
+
+
+
 
      </>
     );

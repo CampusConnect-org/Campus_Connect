@@ -10,6 +10,8 @@ import { useNavigate } from 'react-router-dom';
 import { Signup } from '../Authentication/Signup';
 import { useStateValue } from '../../MyContexts/StateProvider';
 import { auth } from '../../firebase';
+import { Offer } from '../Offer/Offer.js';
+
 
 let theme = createTheme();
 
@@ -82,12 +84,12 @@ export const Landing = () => {
                         {!user && <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" onClick={()=> goToSignup()}>Sign Up</Button>}
                     </Box>
 
-{
+{/* {
     user!==null && <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
    
-    >Welcome to Campus Connect 
+    >Welcome to Campus Connect
     </Button>
-}
+} */}
                 </Grid>
                 {/* <Grid item mx={5} container xs={12} spacing={1}>
                     
@@ -153,7 +155,7 @@ export const Landing = () => {
         </Grid>
     </Grid>
     </ThemeProvider>
-    <Offer/>
+  <Offer/>
     </>
   )
 }

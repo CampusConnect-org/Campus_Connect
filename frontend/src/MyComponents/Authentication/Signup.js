@@ -35,7 +35,7 @@ export const Signup = () => {
                     }).then(()=>{
                         auth.signInWithEmailAndPassword(email,password)
                         .then(auth=>{
-                            if(auth) navigate('/');
+                            if(auth) navigate('../profile/');
                         }).catch(error=>alert(error.message))
                     }).catch(error=>alert(error.message))
                 }).catch(error=>alert(error.message))

@@ -81,7 +81,7 @@ export const Landing = () => {
                         }
                         {!user && <Button sx={{maxHeight:"35px" ,marginLeft: 2, borderRadius: "50" }} variant="outlined" color="secondary" onClick={()=> goToSignup()}>Sign Up</Button>}
                     </Box>
-} 
+
 {
     user!==null && <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
    

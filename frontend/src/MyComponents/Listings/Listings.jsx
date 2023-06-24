@@ -3,7 +3,9 @@ import "./Listings.css"
 import { useEffect } from 'react';
 import Listing from './Listing';
 import Footer from '../Footer/Footer';
-
+// import {Listing} from "./Listings.js";
+import {Openings} from "./Openings.js"
+  
 
 
 const LeftMenu = ({type, setType}) => {
@@ -76,25 +78,22 @@ const LeftMenu = ({type, setType}) => {
 };
 
 const MiddleContent = ({type, setType}) => {
-  console.log(type)
   let arr=[ ["comp1", "comp2", "comp3"], ["startup1" ,"startup2", "startup3"], ["explore1","explore2", "explore3"]];
-  
-  
+
   const [curr, setCurr]=useState(0);
 
-    const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
-    const[open, setOpen]=useState(-1);
+  const[open, setOpen]=useState(-1);
 
 
-    const handleExpand = () => {
+  const handleExpand = () => {
       setExpanded(!expanded);
     };
    const handleInquire=(e)=>{
     setOpen(e);
    }
-    let newArr=arr[type].slice(curr,curr+3);
-
+    let newArr=Openings.slice(curr,curr+3);
 
 
     //swiper code
@@ -102,12 +101,16 @@ const MiddleContent = ({type, setType}) => {
 
 const changeCurr=()=>{
   setOpen(-1);
-  setCurr(Math.min(curr+3, arr.length-2));
+  if(curr+3 < Openings.length)setCurr(curr+3);
 }
 
 const prevCurr=()=>{
   setOpen(-1);
-  setCurr(Math.max(0,curr-4));
+  setCurr(Math.max(0,curr-3));
+}
+
+const newListing = ()=>{
+  window.location.replace('https://wa.me/919113340204');
 }
     //swiper code
 
@@ -121,9 +124,9 @@ const prevCurr=()=>{
         className='listing-button' id='latest'>Latest</button>
       </div>
       <div className="middle-user-input">
-        <input id="add-listing-btn" type="text" placeholder="Create your Listing..." />
+        <button id="add-listing-btn" onClick={()=> newListing()}>
         {/* Add any additional elements or functionality for user input */}
-
+        Create your Listing...</button>
         <div className="navigation_btns">
         <i id="prev-listing-button" onClick={prevCurr} className="fa-solid fa-arrow-left nav_btn_arrow"></i>
         <i id="next-listing-button" onClick={changeCurr} className="fa-solid fa-arrow-right nav_btn_arrow"></i>
@@ -140,35 +143,25 @@ const prevCurr=()=>{
     { 
    
 
-      newArr.map((e)=>{
-     
+    newArr.map((e)=>{
+      console.log(e.desc);
        return( 
        
 <>
-
-
-
-
        <div className="your-component">
-{e}
         <div className="list-image-container">
           <img className="round-image" src="your-image-url.jpg" alt="" />
          
           <div  className='listing-info'>
-          <h3 className="list-title">Title</h3>
-          <h5 className="list-subtitle">By Somyajeet</h5>
+          <h3 className="list-title">{e.type}</h3>
+          <h5 className="list-subtitle">By {e.owner}</h5>
         </div>
         </div>
         <div>
           <p className={`description ${expanded ? 'expanded' : ''} listing-desc`}>
-            Lorem ipsum dolor sit amet, cOptioptatem, cumque voluptate nobis ratione aliquid hic? voluptatem repellendus vel iure tempora debitis. In, a? Tempore quos quia atque iusto cum.
-            <span className="see-more" onClick={handleExpand}>
-              {expanded ? 'See less' : 'See more'}
-            </span>
+           {e.desc}
           </p>
-          <button className="inquire-button" onClick={()=>handleInquire(e)}>Inquire</button>
-          
-{e==open &&  <Listing elem = {e}/>}
+          <a className="inquire-button" href={e.link} >Inquire</a>
       </div>
       </div>
       </>)

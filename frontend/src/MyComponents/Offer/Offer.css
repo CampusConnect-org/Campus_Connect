@@ -40,3 +40,10 @@
   .bottom_footer{
     bottom:0;
   }
+
+
+  @media screen and (max-width: 580px) {
+    .offer_total{
+      display: none;
+    }
+  }

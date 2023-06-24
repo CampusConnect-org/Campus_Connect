@@ -10,6 +10,7 @@ import { Signup } from './MyComponents/Authentication/Signup.js';
 import { Users } from './MyComponents/Chat/Users/Users.js';
 import { auth, db } from './firebase';
 import { useStateValue } from './MyContexts/StateProvider';
+// import { Profile } from './MyComponents/Profiles/Profile.js';
 import { Profile } from './MyComponents/Profiles/Profile.js';
 import { Option} from './MyComponents/Options/Option.jsx';
 import { Offer } from './MyComponents/Offer/Offer.js';

@@ -64,7 +64,7 @@ export const Landing = () => {
                     <Typography mx={5} my={7} variant='h6'sx={{
                         color:"rgba(66,1,83,1)"
                     }} >
-                        Campus-Connect provides an effective and powerful way to manage your projects and what not.
+                         Unlock the power of connections to fuel your innovation, accelerate your progress, and embark on an exciting journey of limitless possibilities with us.
                     </Typography>
                 </Grid>
                 <Grid my={-7} mx={7} item xs={12} sx={{display:"flex",
@@ -149,7 +149,7 @@ export const Landing = () => {
                 <Typography variant='body'sx={{
                         color:"rgba(66,1,83,1)"
                     }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quibusdam hic quae consectetur blanditiis accusantium culpa animi illum. Consequatur vitae minima laboriosam sed est accusantium praesentium. Mollitia repellendus similique tempora.
+                   What We Do- At Campus-Connect we believe that finding the right people can be the catalyst for innovation and success. Whether you're seeking a startup co-founder, a talented team member for your project, or even a co-host for your podcast, we've got you covered. 
                 </Typography>
             </Grid>
         </Grid>

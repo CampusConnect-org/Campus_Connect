@@ -17,11 +17,11 @@ export const Navbar=()=> {
           <li>
             <Link to="/users"><img src={require("./chat.png")} alt="" /></Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/settings"><img src={require("./settings.png")} alt="" /></Link>
-          </li>
+  </li> */}
           <li>
-            <Link to="/profile"><img src={require("./profile.png")} alt="" /></Link>
+            <Link to="../listings"><img src={require("./profile.png")} alt="" /></Link>
           </li>
         </ul>
       </div>

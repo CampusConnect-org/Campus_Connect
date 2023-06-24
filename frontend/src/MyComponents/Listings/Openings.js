@@ -13,7 +13,7 @@ export const Openings = [
     },
 
     {
-        type: "Founders and Enterpreneurs",
+        type: "Founders|Enterpreneurs",
         desc:"If you are looking for angels for your early stage venture, we are a three million dollar fund investing in early stage startups",
         owner: "Anshuman",
         link: "https://www.tiesocalangels.com"
@@ -25,7 +25,7 @@ export const Openings = [
        link: "https://machinehack.com/genpact_google_for_developer_sustainability_hackathon_lets_crack_the_climate_resilience_code/overview"
     },
     {
-      type: "Software Engineering Intern",
+      type: "SWE Intern",
       owner: "Zeotap",
       desc: "Looking for software engineering intern at zeotap - Bengaluru Batch 2022, 2023, 2024. Average salary= Rs 8,09,885 per year" ,
       link: "https://internfreak.co/jobs-amd-internship-opportunities/software-engineer-intern-at-zeotap-bengaluru" 
@@ -49,7 +49,7 @@ export const Openings = [
     link: "https://linkd.in/g9X-NqFj"
    },
    {
-    type: "Content creator| management intern",
+    type: "Content| management intern",
     desc:"we are hiring for multiple roles as intern. Qualification- graduation/masters. Experience- fresher, location- Chikkajala",
     owner: "Decathlon Sports India",
     link: "https://docs.google.com/forms/d/e/1FAlpQLSfA08NNu4oLbAoX_yq7S4Mc7UQqgrj5u-l5Av9hzPLj1ly-4w/viewform?fbzx=6900776892704152705"

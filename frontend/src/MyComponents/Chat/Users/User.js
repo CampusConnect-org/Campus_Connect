@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { db } from '../../../firebase'
+import "./Users.css"
 
 export const User = ({id}) => {
 
@@ -16,8 +17,9 @@ export const User = ({id}) => {
     const url=`/chat?userid=${id}&username=${name}`;
 
   return (
-    <div>
-        <li>{name}    <Link to={url}>Chat</Link></li>
+    <div className='horizontal-box'>
+        <span className='box-name'>{name}  </span>
+        <span className='chat-icon'>  <Link  to={url}>&#x1F4AC;</Link></span>
     </div>
   )
 }

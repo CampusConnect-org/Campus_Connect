@@ -1,0 +1,38 @@
+.horizontal-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: balck;
+    width: 95%;
+    height: 10vh;
+    margin: 10px;
+    font-weight: 600;
+    border: 2px solid black;
+    transition: transform 0.3s;
+  }
+  
+  .horizontal-box:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+    background-color: plum;
+    color: white;
+    border: 2px solid rgb(210, 106, 210);
+
+  }
+  
+  .box-name {
+    margin-left: 10px;
+  }
+  
+  .chat-icon {
+    scale: 1.2;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+
+  .users{
+    margin-top: 78px;
+    background-color: rgb(219, 218, 218);
+  }

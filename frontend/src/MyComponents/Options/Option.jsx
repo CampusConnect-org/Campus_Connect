@@ -13,7 +13,7 @@ export const Option = () => {
 
  const takeTo = (option)=>{
   if(option.heading.toLowerCase()=== "community"){
-    window.location.replace('https://wa.me/919108604847');
+    window.location.replace('https://chat.whatsapp.com/HL79lfyjvZ2K846LcZcgAI');
   }
   if(option.commingSoon) return;
 
@@ -53,6 +53,6 @@ export const Option = () => {
     }
 
   
-</div>  <Footer/></>
+</div>  </>
   )
 }

@@ -110,7 +110,7 @@ const prevCurr=()=>{
 }
 
 const newListing = ()=>{
-  window.location.replace('https://wa.me/919113340204');
+  window.location.replace('https://chat.whatsapp.com/HL79lfyjvZ2K846LcZcgAI');
 }
     //swiper code
 
@@ -186,8 +186,8 @@ const RightList = () => {
   const links = [
    {
     img:"img",
-    title: "Title",
-    link: "link"
+    title: "Campus connect",
+    link: "https://chat.whatsapp.com/HL79lfyjvZ2K846LcZcgAI"
    },
    {
     img:"img",
@@ -241,7 +241,7 @@ const ComplexComponent = () => {
         <MiddleContent type={type}
         setType={setType}
         />
-        <RightList />
+        {/* <RightList /> */}
              
       </div>
     </div>

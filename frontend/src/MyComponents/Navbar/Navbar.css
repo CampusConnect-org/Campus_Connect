@@ -61,6 +61,15 @@
   @media screen and (max-width: 480px) {
    .nav-right li{
     margin: 2px;
+    scale: 0.9;
+   }
+
+   .nav-left span{
+    font-size: small;
+   }
+
+   img{
+    scale: 0.9;
    }
    .nav-right ul{
     transform: translateX(-2%);

@@ -17,9 +17,9 @@ export const Navbar=()=> {
           <li>
             <Link to="/users"><img src={require("./chat.png")} alt="" /></Link>
           </li>
-          {/* <li>
-            <Link to="/settings"><img src={require("./settings.png")} alt="" /></Link>
-  </li> */}
+          <li>
+            <Link to="../options"><img src={require("./search.png")} alt="" /></Link>
+  </li>
           <li>
             <Link to="../listings"><img src={require("./profile.png")} alt="" /></Link>
           </li>

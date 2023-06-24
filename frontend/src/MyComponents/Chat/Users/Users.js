@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../../../firebase'
 import { User } from './User';
+import "./Users.css"
 
 export const Users = () => {
 

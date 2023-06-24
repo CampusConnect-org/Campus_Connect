@@ -3,21 +3,25 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    color: balck;
-    width: 95%;
+    color: black;
+    margin: 10px auto;
+    width: 70%;
     height: 10vh;
-    margin: 10px;
+    /* margin: 10px; */
     font-weight: 600;
     border: 2px solid black;
     transition: transform 0.3s;
+    border-radius: 13px;
+    box-shadow: 2px 5px;
   }
   
   .horizontal-box:hover {
     transform: scale(1.01);
     cursor: pointer;
-    background-color: plum;
-    color: white;
-    border: 2px solid rgb(210, 106, 210);
+    /* background-color: rgb(235, 192, 235); */
+    /* color: white; */
+
+    border: 2px solid ;
 
   }
   
@@ -28,11 +32,14 @@
   .chat-icon {
     scale: 1.2;
     margin-right: 10px;
-    text-decoration: none;
+   
   }
-  
+  .chat-icon:hover{
+  color: purple;
+  }
 
   .users{
     margin-top: 78px;
     background-color: rgb(219, 218, 218);
+
   }

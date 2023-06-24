@@ -26,7 +26,7 @@ export const Users = () => {
 
   return (
     <div className="users">
-      <h1>Users</h1>
+      <h1>Connect</h1>
       {loading&& "Loading..."}
       {usersList.map(user=>(<User id={user.userid} />))}
     </div>

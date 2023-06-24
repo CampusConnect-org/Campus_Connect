@@ -56,7 +56,9 @@ export const Chat = () => {
     }
     
     return (
+
         <>
+        <div className='chat_area'>
             <div><h1>{receiverUserName}</h1></div>
             {loading && "Loading..."}
             <div className="messages">
@@ -84,6 +86,7 @@ export const Chat = () => {
                 <button type="submit" onClick={sendMessage}> Send Message</button>
             </form>
             {sending&&"Message Sending..."}
+            </div>
         </>
     )
 }

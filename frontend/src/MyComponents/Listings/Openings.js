@@ -49,9 +49,21 @@ export const Openings = [
     link: "https://linkd.in/g9X-NqFj"
    },
    {
-    type: "Content| management intern",
+    type: "Content| Management",
     desc:"we are hiring for multiple roles as intern. Qualification- graduation/masters. Experience- fresher, location- Chikkajala",
     owner: "Decathlon Sports India",
     link: "https://docs.google.com/forms/d/e/1FAlpQLSfA08NNu4oLbAoX_yq7S4Mc7UQqgrj5u-l5Av9hzPLj1ly-4w/viewform?fbzx=6900776892704152705"
+   },
+   {
+    type: "Product| Motion Design",
+    desc: "Urban Company is hiring across multiple roles across levels including interns",
+    owner: "Urban Company",
+    link: " https://docs.google.com/forms/d/e/1FAIpQLSeXtyGmqrJoYEKmGia6NSSnBttkhxVmKMAjyGUOA7dfZ8yYHg/viewform "
+   },
+   {
+    type: "Co-Founder",
+    desc: "Attention tech-savvy individuals with a passion for film-making and a flair for innovation! Our cutting-edge startup is seeking a talented co-founder to join our dynamic team",
+    owner: "",
+    link: "http://www.olefinwhitefilms.com/"
    }
 ] 

@@ -1,3 +1,12 @@
 .landing_page_img{
     height: 100%;
 }
+
+.main_page_container{
+    max-width: 100vw;
+}
+
+
+    .landing_grid{
+overflow-x: hidden;
+    }

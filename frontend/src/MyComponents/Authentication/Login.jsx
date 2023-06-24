@@ -41,7 +41,7 @@ const Login = () => {
               name:authUser.user.displayName,
               email:authUser.user.email
           }).then(()=>{
-              if(authUser)navigate('/');
+              if(authUser)navigate('/profile');
           }).catch(error=>alert(error.message))
       }).catch(error=>alert(error.message))
     }).catch(error=>{

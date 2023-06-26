@@ -3,7 +3,7 @@ import { Link,  useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import { auth, db , provider} from '../../firebase';
 import "./Login.css"
-import { signInWithPopup } from 'firebase/auth';
+import { getAdditionalUserInfo, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -34,16 +34,24 @@ const Login = () => {
   const handleGoogleLogin = () => {
     signInWithPopup(auth,provider)
     .then(authUser=>{
-      db.collection('users').doc(authUser.user.uid).set({
-        userid:authUser.user.uid
-      }).then(()=>{
-          db.collection('users').doc(authUser.user.uid).collection('profile').doc('userInfo').set({
-              name:authUser.user.displayName,
-              email:authUser.user.email
-          }).then(()=>{
-              if(authUser)navigate('/profile');
-          }).catch(error=>alert(error.message))
-      }).catch(error=>alert(error.message))
+      const info=getAdditionalUserInfo(authUser);
+      if(info.isNewUser){
+        db.collection('users').doc(authUser.user.uid).set({
+          userid:authUser.user.uid
+        }).then(()=>{
+            db.collection('users').doc(authUser.user.uid).collection('profile').doc('userInfo').set({
+                name:authUser.user.displayName,
+                email:authUser.user.email,
+                college:"abc",
+                yearOfStudy:"3"
+            }).then(()=>{
+                if(authUser)navigate('/profile');
+            }).catch(error=>alert(error.message))
+        }).catch(error=>alert(error.message))
+      }
+      else{
+        navigate('/options');
+      }
     }).catch(error=>{
       alert(error.message);
     })

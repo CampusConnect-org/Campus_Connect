@@ -75,7 +75,7 @@ export const Landing = () => {
                     }} >
 
                     <Box display="flex" justifyContent="flex-start" alignItems="center">
-                        {!user?<Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
+                        {(!user)?<Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 
                         onClick={()=> goToLogin()}
                         >Login</Button>:
                         <Button sx={{ maxHeight:"35px" ,marginLeft: "auto", borderRadius: "50" }} variant="outlined" color="secondary" 

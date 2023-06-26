@@ -1,14 +1,22 @@
-import React, {useState} from 'react'; 
+import React, {useState,useEffect} from 'react'; 
 import "./Listings.css"
-import { useEffect } from 'react';
 import Listing from './Listing';
 import Footer from '../Footer/Footer';
 // import {Listing} from "./Listings.js";
 import {Openings} from "./Openings.js"
-  
+import { useStateValue } from '../../MyContexts/StateProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 const LeftMenu = ({type, setType}) => {
+
+  const [{user},dispatch]=useStateValue();
+  const navigate=useNavigate();
+
+  useEffect(()=>{
+    if(!user) navigate('/login');
+  },[])
+
   console.log(type)
   //menu for mobile devices
   

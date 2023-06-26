@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Chat.css';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams,useNavigate } from 'react-router-dom';
 import { db } from '../../firebase.js';
 import { Timestamp } from 'firebase/firestore';
 import { useStateValue } from '../../MyContexts/StateProvider';
@@ -17,10 +17,13 @@ export const Chat = () => {
     const [sending,setSending]=useState(false);
     const [loading,setLoading]=useState(false);
 
+    const navigate=useNavigate();
+
     const messagesRef=db.collection('users').doc(user?.uid).collection('chats').doc(receiverUserId).collection('messages');
     const messagesRef2=db.collection('users').doc(receiverUserId).collection('chats').doc(user?.uid).collection('messages');
 
     useEffect(()=>{
+        if(!user) navigate('/login')
         setLoading(true);
         if(user){
             messagesRef
@@ -33,9 +36,9 @@ export const Chat = () => {
             })
         }
         setLoading(false);
-        console.log(messageList);
+        // console.log(messageList);
         //eslint-disable-next-line
-    },[messagesRef])
+    },[user,messagesRef])
 
     const [newMessage,setNewMessage]=useState('')
 
@@ -47,8 +50,8 @@ export const Chat = () => {
             id:user.uid,
             senderName:name
         };
-        event.preventDefault();
         if(newMessage.length===0) return;
+        event.preventDefault();
         if(user?.uid!==receiverUserId) messagesRef2.add(message);
         await messagesRef.add(message)
         setNewMessage('');

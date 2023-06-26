@@ -23,18 +23,19 @@ import Login from './MyComponents/Authentication/Login';
 function App() {
 
   //eslint-disable-next-line
-  const [{name},dispatch]=useStateValue();
+  const [{name,user},dispatch]=useStateValue();
 
   useEffect(()=>{
     auth.onAuthStateChanged((authUser)=>{
+      // console.log(authUser);
       if(authUser){
-        console.log(authUser);
         db.collection('users').doc(authUser.uid).collection('profile').doc('userInfo').get()
         .then(doc=>{
           let name=doc.data().name;
           let college=doc.data().college;
           let email=doc.data().email;
           let yearOfStudy=doc.data().yearOfStudy;
+          // console.log(authUser);
           dispatch({
             type:'SET_USER',
             user:authUser,
@@ -43,6 +44,7 @@ function App() {
             email,
             yearOfStudy
           })
+          console.log(user);
         })
         db.collection('users').doc(authUser.uid).collection('profile').doc('interests').get()
         .then(doc=>{
@@ -70,6 +72,7 @@ function App() {
           goals:[]
         })
       }
+      // console.log(user);
     })
     console.log(name);
     //eslint-disable-next-line

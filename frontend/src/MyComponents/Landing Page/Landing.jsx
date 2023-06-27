@@ -119,43 +119,42 @@ export const Landing = () => {
                 paddingLeft:"20px"
             }} >
                 <img className='landing_page_img'
-                    width="100%" height="100px"
+                    width="100%" height="80vh"
                     alt="complex"
                     src={pic}
                 />
             </Grid>
         </Grid>
         <Grid item container sx={{background: "rgba(192,104,232,0.5)",
-            height: "100vh",
+            height: "60vh",
         }} >
-            <Grid item xs={12} md={6} container spacing={1} sx={{
+            <Grid item xs={12} md={5} container spacing={1} sx={{
                 display:"flex",
                 justifyContent:"center",
                 alignItems:"center",
-                padding:"80px"
+                padding:"10px"
                 
             }} >
                 <Typography variant='h3'sx={{
                         color:"rgba(66,1,83,1)"
                     }}>
-                    With the right Software, Great Things Can Happen
+                         What We Do ? 
+                
                     
                 </Typography>
             </Grid>
-            <Grid item xs={12} md={6} container spacing={1} sx={{
+            <Grid item xs={10} md={6} container spacing={1} sx={{
                 display:"flex",
                 justifyContent:"center",
                 alignItems:"center",
-                padding:"30px"
+                padding:"20px"
             }} >
                 <Typography variant='body'sx={{
                         color:"rgba(66,1,83,1)"
                     }}>
                    
-                    What We Do ? 
-                    <br /><br />
-                    <br /><br />
-                 At Campus-Connect we believe that finding the right people can be the catalyst for innovation and success. Whether you're seeking a startup co-founder, a talented team member for your project, or even a co-host for your podcast, we've got you covered. 
+                
+               <b style={{fontSize: "19px"}}> At Campus-Connect we believe that finding the right people can be the catalyst for innovation and success. Whether you're seeking a startup co-founder, a talented team member for your project, or even a co-host for your podcast, we've got you covered. </b> 
                 </Typography>
             </Grid>
         </Grid>

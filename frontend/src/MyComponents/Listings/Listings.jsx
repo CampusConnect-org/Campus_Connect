@@ -17,7 +17,7 @@ const LeftMenu = ({type, setType}) => {
     if(!user) navigate('/login');
   },[])
 
-  console.log(type)
+
   //menu for mobile devices
   
     const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const LeftMenu = ({type, setType}) => {
     };
   
     const handleItemClick = (n) => {
-      console.log(n);
+   
       setType(n);
       setIsOpen(false);
       // Add your custom logic for handling item click here
@@ -152,7 +152,7 @@ const newListing = ()=>{
    
 
     newArr.map((e)=>{
-      console.log(e.desc);
+   
        return( 
        
 <>

@@ -39,17 +39,17 @@ const addInterest=(interest, id)=>{
   if(isFound) removeInterest(id);
 
   var x=document.getElementById(`${id}`);
-  console.log(x);
+  
   toggle(x);
 
   setInterests(interests=> [...interests, interest]);
-  console.log(interest);
+ 
   
 }
 
 const removeInterest=(id)=>{
   var x=document.getElementById(`${id}`);
-  console.log(x);
+
  
 
   var index=interests.findIndex(object=>{
@@ -62,7 +62,7 @@ const removeInterest=(id)=>{
   ]);
    
  
-  console.log(interests)
+
 }
 
 const addGoal=(goal, id)=>{
@@ -81,17 +81,17 @@ const addGoal=(goal, id)=>{
 
   
   var x=document.getElementById(`${id}`);
-  console.log(x);
+ 
   toggle(x);
 
   setGoals(goals=> [...goals, goal]);
-  console.log(goal);
+  
 }
 
 
 const removeGoal=(id)=>{
   var x=document.getElementById(`${id}`);
-  console.log(x);
+
  
 
   var index=goals.findIndex(object=>{
@@ -104,7 +104,7 @@ const removeGoal=(id)=>{
   ]);
    
  
-  console.log(goals)
+
 }
 
 const removeGoals=(index)=>{
@@ -142,8 +142,7 @@ const Goalanimation={
 };
 
 const submitInfo=()=>{
-  console.log(goals);
-  console.log(interests);
+ 
 
   const profileRef=db.collection('users').doc(user?.uid).collection('profile');
 

@@ -105,9 +105,10 @@ const Login = () => {
            placeholder="Password"
            value={password}
            onChange={handlePasswordChange}
-         />    <button className="google-login" onClick={handleGoogleLogin}>
+         />    
+         {/* <button className="google-login" onClick={handleGoogleLogin}>
             Login with Google
-            </button>  
+            </button>   */}
                 <hr/>
                 <a className="login-a" href="#">Forgot Password?</a>
                 <div class="buttons">

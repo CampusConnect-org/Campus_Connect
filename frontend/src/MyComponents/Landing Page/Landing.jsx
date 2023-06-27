@@ -60,12 +60,12 @@ export const Landing = () => {
                         color:"rgba(66,1,83,1)"
                     }} >
                         Connect.
-                        Communicate.Create
+                        Collaborate.Create
                     </Typography>
                     <Typography mx={5} my={7} variant='h6'sx={{
                         color:"rgba(66,1,83,1)"
                     }} >
-                         Unlock the power of connections to fuel your innovation, accelerate your progress, and embark on an exciting journey of limitless possibilities with us.
+                         Unlock the power of collaborations to fuel your innovation, accelerate your progress, and embark on an exciting journey of limitless possibilities with us.
                     </Typography>
                 </Grid>
                 <Grid my={-7} mx={7} item xs={12} sx={{display:"flex",

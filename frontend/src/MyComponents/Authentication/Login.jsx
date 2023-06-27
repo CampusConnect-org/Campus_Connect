@@ -4,6 +4,8 @@ import firebase from 'firebase/compat/app';
 import { auth, db , provider} from '../../firebase';
 import "./Login.css"
 import { getAdditionalUserInfo, signInWithPopup } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,14 +22,23 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert("Logging in");
+    toast.info('Hang on tight', {
+      position: toast.POSITION.TOP_RIGHT
+    })
     auth.signInWithEmailAndPassword(email,password)
     .then((auth)=>{
       if(auth){
-        navigate('/options')
+        toast.success('Logging In', {
+          position: toast.POSITION.TOP_RIGHT
+        })
+
+        navigate('/options');
+      
       }
     }).catch(error=>{
-      alert(error.message);
+      toast.error("Invalid credentials", {
+        position: toast.POSITION.TOP_RIGHT
+      })
     })
   };
 
@@ -45,15 +56,31 @@ const Login = () => {
                 college:"abc",
                 yearOfStudy:"3"
             }).then(()=>{
-                if(authUser)navigate('/profile');
-            }).catch(error=>alert(error.message))
-        }).catch(error=>alert(error.message))
+                if(authUser)
+                {
+                  toast.success('Successfully signed-up', {
+                    position: toast.POSITION.TOP_RIGHT
+                  });
+                  navigate('/profile');
+                }
+            }).catch(error=>
+              // alert(error.message)
+              toast.error(`${error.message}`, {
+                position: toast.POSITION.TOP_RIGHT
+              })
+              
+              )
+        }).catch(error=>  toast.error(`${error.message}`, {
+          position: toast.POSITION.TOP_RIGHT
+        }))
       }
       else{
         navigate('/options');
       }
     }).catch(error=>{
-      alert(error.message);
+      toast.error(`${error.message}`, {
+        position: toast.POSITION.TOP_RIGHT
+      });
     })
   };
 
@@ -64,8 +91,10 @@ const Login = () => {
   return (
   
 <div className="login-container">
-        <div class="box">
+  
+        <div class="box"><ToastContainer/>
             <div class="login-content">
+            
                 <h1>Login</h1>
                 <hr/>
                 <input type="email"

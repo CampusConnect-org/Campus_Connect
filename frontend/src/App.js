@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -19,8 +19,25 @@ import Footer from './MyComponents/Footer/Footer.jsx';
 import Listings from './MyComponents/Listings/Listings.jsx';
 import { Landing } from './MyComponents/Landing Page/Landing';
 import Login from './MyComponents/Authentication/Login';
+import Preloader from './MyComponents/Preloader/Preloader';
 
 function App() {
+  
+  //preloader code
+  const [loading, setLoading] = useState(true);
+
+
+  useEffect(() => {
+    // Simulating an asynchronous operation
+    setTimeout(() => {
+      setLoading(false);
+    }, 7000);
+  }, []);
+
+
+
+//preloader code
+
 
   //eslint-disable-next-line
   const [{name,user},dispatch]=useStateValue();
@@ -81,6 +98,9 @@ function App() {
   return (
    
     <div>
+      {
+        loading ? <Preloader/> : 
+      
   <Router>
       <Navbar/>
      
@@ -99,7 +119,7 @@ function App() {
         </Routes>
       
            </Router>
-         
+}    
         </div>
   );
 }

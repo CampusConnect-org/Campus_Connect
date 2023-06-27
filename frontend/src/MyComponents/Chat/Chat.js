@@ -23,6 +23,7 @@ export const Chat = () => {
     const messagesRef2=db.collection('users').doc(receiverUserId).collection('chats').doc(user?.uid).collection('messages');
 
     useEffect(()=>{
+        console.log(user);
         if(!user) navigate('/login')
         setLoading(true);
         if(user){
